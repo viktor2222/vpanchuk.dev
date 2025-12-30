@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, ExternalLink } from "lucide-react";
+import { Mail, Github, Linkedin, Briefcase } from "lucide-react";
 
 export function ContactSection() {
   return (
@@ -18,19 +18,48 @@ export function ContactSection() {
           Feel free to reach out via email or connect on social media.
         </p>
         
-        <div className="flex flex-wrap justify-center gap-6 pt-4">
+        <div className="flex flex-col items-center gap-8">
           <a
             href="mailto:vpanchukdev@gmail.com"
-            className="flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-white/90 transition-transform active:scale-95"
+            className="flex items-center gap-3 px-10 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-transform active:scale-95"
           >
-            <Mail size={20} />
+            <Mail size={22} />
             vpanchukdev@gmail.com
           </a>
+
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="https://github.com/viktor2222"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 glass rounded-full hover:bg-white/5 transition-colors"
+            >
+              <Github size={18} />
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/viktor-panchuk-43295215b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 glass rounded-full hover:bg-white/5 transition-colors"
+            >
+              <Linkedin size={18} />
+              LinkedIn
+            </a>
+            <a
+              href="https://www.upwork.com/freelancers/~011a8c66e1b4df0b03"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 glass rounded-full hover:bg-white/5 transition-colors"
+            >
+              <Briefcase size={18} />
+              Upwork
+            </a>
+          </div>
         </div>
         
         <div className="flex justify-center gap-8 pt-6">
-           {/* Add social links placeholders if needed, but email is primary from resume */}
-           <span className="text-foreground/40 text-sm italic">Based in Ukraine · Available Worldwide</span>
+           <span className="text-foreground/40 text-sm italic">Based in Rivne, Ukraine · Available Worldwide</span>
         </div>
       </motion.div>
       
