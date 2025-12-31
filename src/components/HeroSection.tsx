@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Github, Linkedin, Briefcase } from "lucide-react";
+import { personal, socials } from "@/config/site";
 
 export function HeroSection() {
   return (
@@ -16,7 +17,7 @@ export function HeroSection() {
           <div className="relative z-10 w-full max-w-md mx-auto [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]">
             <img 
               src="/profile.png" 
-              alt="Viktor Panchuk" 
+              alt={personal.name} 
               className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
             />
           </div>
@@ -30,10 +31,10 @@ export function HeroSection() {
           transition={{ duration: 0.6 }}
         >
           <span className="text-primary font-medium tracking-wider uppercase mb-4 block">
-            Frontend Developer
+            {personal.role}
           </span>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-            Viktor Panchuk
+            {personal.name}
           </h1>
           <p className="text-xl md:text-2xl text-foreground/70 max-w-2xl leading-relaxed mb-10">
             Building production-ready web applications with 7+ years of experience. 
@@ -48,7 +49,7 @@ export function HeroSection() {
               Review Experience
             </a>
             <a
-              href="mailto:vpanchukdev@gmail.com"
+              href={`mailto:${personal.email}`}
               className="px-8 py-4 glass rounded-full font-medium hover:bg-white/10 transition-colors"
             >
               Get in Touch
@@ -61,13 +62,13 @@ export function HeroSection() {
             transition={{ delay: 0.8 }}
             className="flex gap-6 mt-12"
           >
-            <a href="https://github.com/viktor2222" target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-colors">
+            <a href={socials.github} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-colors">
               <Github size={24} />
             </a>
-            <a href="https://www.linkedin.com/in/viktor-panchuk-43295215b/" target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-colors">
+            <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-colors">
               <Linkedin size={24} />
             </a>
-            <a href="https://www.upwork.com/freelancers/~011a8c66e1b4df0b03" target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-colors">
+            <a href={socials.upwork} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-colors">
               <Briefcase size={24} />
             </a>
           </motion.div>

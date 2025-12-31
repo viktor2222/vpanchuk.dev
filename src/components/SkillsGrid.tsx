@@ -1,32 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const skillCategories = [
-  {
-    title: "Core",
-    skills: ["React", "Next.js", "TypeScript", "JavaScript (ES6+)"]
-  },
-  {
-    title: "Styling & UI",
-    skills: ["Tailwind CSS", "shadcn/ui", "daisyUI", "Framer Motion"]
-  },
-  {
-    title: "Backend & Tools",
-    skills: ["Node.js", "REST APIs", "Git", "CI/CD", "Vercel"]
-  },
-  {
-    title: "Integrations",
-    skills: ["Stripe", "Clerk", "OpenAI", "Cloudinary"]
-  }
-];
+import { skills } from "@/config/site";
+import type { SkillCategory } from "@/config/site";
 
 export function SkillsGrid() {
   return (
     <section id="skills" className="section-padding">
       <h2 className="text-3xl md:text-4xl font-bold mb-12">Expertise</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {skillCategories.map((category, idx) => (
+        {skills.map((category: SkillCategory, idx: number) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +22,7 @@ export function SkillsGrid() {
               {category.title}
             </h3>
             <ul className="space-y-3">
-              {category.skills.map((skill, i) => (
+              {category.items.map((skill, i) => (
                 <li key={i} className="text-lg font-medium">
                   {skill}
                 </li>

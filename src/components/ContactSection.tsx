@@ -1,9 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Briefcase } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Github, Linkedin, Briefcase, Copy, Check } from "lucide-react";
+import { personal, socials } from "@/config/site";
 
 export function ContactSection() {
+  const [copied, setCopied] = useState(false);
+  const email = personal.email;
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <section id="contact" className="section-padding text-center">
       <motion.div
@@ -18,53 +29,84 @@ export function ContactSection() {
           Feel free to reach out via email or connect on social media.
         </p>
         
-        <div className="flex flex-col items-center gap-8">
-          <a
-            href="mailto:vpanchukdev@gmail.com"
-            className="flex items-center gap-3 px-10 py-5 bg-white text-black rounded-full font-bold hover:scale-105 transition-transform active:scale-95"
-          >
-            <Mail size={22} />
-            vpanchukdev@gmail.com
-          </a>
+        <div className="flex flex-col items-center gap-10">
+          <div className="space-y-4">
+            <p className="text-foreground/40 text-sm uppercase tracking-widest font-bold">Email me at</p>
+            <div className="flex items-center justify-center gap-4 group">
+              <a
+                href={`mailto:${email}`}
+                className="text-2xl md:text-4xl font-medium hover:text-primary transition-colors duration-300 underline underline-offset-8 decoration-white/10 hover:decoration-primary/50"
+              >
+                {email}
+              </a>
+              <button
+                onClick={copyToClipboard}
+                className="p-3 glass rounded-xl hover:bg-white/10 transition-colors relative"
+                title="Copy to clipboard"
+              >
+                <AnimatePresence mode="wait">
+                  {copied ? (
+                    <motion.div
+                      key="check"
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.5, opacity: 0 }}
+                    >
+                      <Check size={20} className="text-primary" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="copy"
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.5, opacity: 0 }}
+                    >
+                      <Copy size={20} className="text-foreground/40 group-hover:text-foreground" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </button>
+            </div>
+          </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-6">
             <a
-              href="https://github.com/viktor2222"
+              href={socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 glass rounded-full hover:bg-white/5 transition-colors"
+              className="flex items-center gap-3 px-6 py-3 glass rounded-full hover:bg-white/10 hover:-translate-y-1 hover:text-primary transition-all duration-300"
             >
-              <Github size={18} />
-              GitHub
+              <Github size={20} />
+              <span className="font-medium text-sm">GitHub</span>
             </a>
             <a
-              href="https://www.linkedin.com/in/viktor-panchuk-43295215b/"
+              href={socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 glass rounded-full hover:bg-white/5 transition-colors"
+              className="flex items-center gap-3 px-6 py-3 glass rounded-full hover:bg-white/10 hover:-translate-y-1 hover:text-primary transition-all duration-300"
             >
-              <Linkedin size={18} />
-              LinkedIn
+              <Linkedin size={20} />
+              <span className="font-medium text-sm">LinkedIn</span>
             </a>
             <a
-              href="https://www.upwork.com/freelancers/~011a8c66e1b4df0b03"
+              href={socials.upwork}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 glass rounded-full hover:bg-white/5 transition-colors"
+              className="flex items-center gap-3 px-6 py-3 glass rounded-full hover:bg-white/10 hover:-translate-y-1 hover:text-primary transition-all duration-300"
             >
-              <Briefcase size={18} />
-              Upwork
+              <Briefcase size={20} />
+              <span className="font-medium text-sm">Upwork</span>
             </a>
           </div>
         </div>
         
         <div className="flex justify-center gap-8 pt-6">
-           <span className="text-foreground/40 text-sm italic">Based in Rivne, Ukraine · Available Worldwide</span>
+           <span className="text-foreground/40 text-sm italic">Based in {personal.location} · Available Worldwide</span>
         </div>
       </motion.div>
       
       <footer className="mt-20 pt-8 border-t border-white/5 text-foreground/30 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
-        <p>© {new Date().getFullYear()} Viktor Panchuk. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} {personal.name}. All rights reserved.</p>
         <p>Built with Next.js, React & Tailwind CSS</p>
       </footer>
     </section>

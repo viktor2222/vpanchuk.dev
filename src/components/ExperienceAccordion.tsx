@@ -5,39 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Calendar, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const experiences = [
-  {
-    title: "Frontend Developer",
-    company: "Osum (AI powered)",
-    duration: "Jan 2023 – May 2025",
-    description: [
-      "Built frontend of an AI-powered business intelligence platform using Next.js, Tailwind, and shadcn/ui.",
-      "Integrated Stripe, Clerk, OpenAI, and Cloudinary APIs.",
-      "Improved performance and SEO by optimizing rendering, data fetching, and asset loading.",
-      "Delivered responsive dashboards with PDF export functionality."
-    ]
-  },
-  {
-    title: "Frontend Developer",
-    company: "Crypto Projects (Armor, Mochi, Sentry)",
-    duration: "2020 – 2023",
-    description: [
-      "Developed decentralized apps, dutch auctions, and token launch platforms.",
-      "Connected smart contracts with frontend for reliable on-chain interaction.",
-      "Integrated wallet providers and optimized performance for 5k+ concurrent users.",
-      "Contributed to successful token launches."
-    ]
-  },
-  {
-    title: "Frontend Developer",
-    company: "Freelance",
-    duration: "2017 – 2020",
-    description: [
-      "Delivered websites and web apps using React, Gatsby, jQuery.",
-      "Focused on responsive UI, bug fixing, and cross-browser compatibility."
-    ]
-  }
-];
+import { experience } from "@/config/site";
+import type { ExperienceItem } from "@/config/site";
 
 export function ExperienceAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -47,7 +16,7 @@ export function ExperienceAccordion() {
       <h2 className="text-3xl md:text-4xl font-bold mb-12">Professional Journey</h2>
       
       <div className="space-y-4">
-        {experiences.map((exp, index) => (
+        {experience.map((exp: ExperienceItem, index: number) => (
           <div 
             key={index}
             className={cn(
