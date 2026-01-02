@@ -18,6 +18,7 @@ export type ExperienceItem = {
   title: string;
   company: string;
   duration: string;
+  technologies: string[];
   description: string[];
 };
 
@@ -48,53 +49,93 @@ export const socials: SocialLinks = {
 
 export const experience: ExperienceItem[] = [
   {
-    title: "Frontend Developer",
-    company: "Osum (AI powered)",
-    duration: "Jan 2023 – May 2025",
+    title: "Frontend Engineer",
+    company: "Osum (AI Intelligence)",
+    duration: "Jan 2023 – Present",
+    technologies: ["Next.js 14", "TypeScript", "Tailwind CSS", "OpenAI API", "Clerk", "Stripe"],
     description: [
-      "Built frontend of an AI-powered business intelligence platform using Next.js, Tailwind, and shadcn/ui.",
-      "Integrated Stripe, Clerk, OpenAI, and Cloudinary APIs.",
-      "Improved performance and SEO by optimizing rendering, data fetching, and asset loading.",
-      "Delivered responsive dashboards with PDF export functionality."
+      "Architected a market intelligence platform transforming raw data into actionable visual insights.",
+      "Implemented streaming AI responses and real-time chart updates using Next.js App Router.",
+      "Integrated Stripe subscriptions and Clerk authentication for secure user access."
+    ]
+  },
+  {
+    title: "Frontend Engineer",
+    company: "Immersia",
+    duration: "2025",
+    technologies: ["Angular (v19)", "Firebase", "Tailwind CSS v4", "DaisyUI", "RxJS"],
+    description: [
+      "Architected a scalable educational platform using bleeding-edge Angular and Tailwind v4.",
+      "Implemented real-time data sync and user management using Firebase ecosystem.",
+      "Built a comprehensive UI kit with DaisyUI for consistent design across the application."
+    ]
+  },
+  {
+    title: "Web3 Frontend Engineer",
+    company: "DeFi Protocols (Armor / Mochi / Sentry / Concur / Cyberfrogs)",
+    duration: "2021 – 2023",
+    technologies: ["React", "Ethers.js", "Lightweight Charts", "Framer Motion", "i18n"],
+    description: [
+      "Built a high-performance decentralized exchange interface with real-time trading charts.",
+      "Developed complex multi-step transaction flows for staking and liquidity provision.",
+      "Localized the platform for global markets using i18n and optimized bundle size."
     ]
   },
   {
     title: "Frontend Developer",
-    company: "Crypto Projects (Armor, Mochi, Sentry)",
-    duration: "2020 – 2023",
+    company: "Licensing Brands",
+    duration: "2019 – 2020",
+    technologies: ["Next.js", "Leaflet Maps", "React Player", "Framer Motion"],
     description: [
-      "Developed decentralized apps, dutch auctions, and token launch platforms.",
-      "Connected smart contracts with frontend for reliable on-chain interaction.",
-      "Integrated wallet providers and optimized performance for 5k+ concurrent users.",
-      "Contributed to successful token launches."
+      "Developed interactive marketing platforms featuring complex map integrations and media playback.",
+      "Optimized performance for media-heavy pages aiming for high Core Web Vitals scores.",
+      "Collaborated with design teams to implement pixel-perfect, responsive animated interfaces."
     ]
   },
   {
     title: "Frontend Developer",
-    company: "Freelance",
-    duration: "2017 – 2020",
+    company: "Whitedot (Upwork)",
+    duration: "2018 – 2019",
+    technologies: ["Gatsby", "React", "Styled Components", "React Reveal", "GraphQL"],
     description: [
-      "Delivered websites and web apps using React, Gatsby, jQuery.",
-      "Focused on responsive UI, bug fixing, and cross-browser compatibility."
+      "Delivered my first major commercial project, a high-performance marketing site for a design agency.",
+      "Implemented complex scroll animations and creative UI effects using React Reveal and Styled Components.",
+      "Achieved perfect Lighthouse performance scores using Gatsby static site generation."
     ]
   }
 ];
 
 export const skills: SkillCategory[] = [
   {
-    title: "Core",
-    items: ["React", "Next.js", "TypeScript", "JavaScript (ES6+)"]
+    title: "Modern Frontend",
+    items: [
+      "React (v18+)", "Next.js (App Router)", "TypeScript", "Angular (v17+ basics)", 
+      "TanStack Query", "Zustand / Redux", "Astro", "Gatsby", "RxJS", "Server Components", 
+      "Vite / Webpack", "i18n / Localization", "Web Vitals"
+    ]
   },
   {
-    title: "Styling & UI",
-    items: ["Tailwind CSS", "shadcn/ui", "daisyUI", "Framer Motion"]
+    title: "UI & Animation",
+    items: [
+      "Tailwind CSS", "Framer Motion", "React Spring", "Shadcn/UI", 
+      "Material UI", "DaisyUI", "Headless UI", "Styled Components", 
+      "SASS / SCSS", "Data Visualization", "Responsive Design"
+    ]
   },
   {
-    title: "Backend & Tools",
-    items: ["Node.js", "REST APIs", "Git", "CI/CD", "Vercel"]
+    title: "Web3 Integration",
+    items: [
+      "Solidity", "Hardhat", "Ethers.js / Web3.js", 
+      "Smart Contracts", "OpenZeppelin", "WalletConnect", "The Graph", 
+      "DeFi Protocols", "DApp Architecture", "Gas Optimization"
+    ]
   },
   {
-    title: "Integrations",
-    items: ["Stripe", "Clerk", "OpenAI", "Cloudinary"]
+    title: "Backend & Services",
+    items: [
+      "Node.js", "Prisma", "Supabase / Firebase", 
+      "CI/CD (GitHub Actions)", "Stripe Payments", "Clerk Auth", 
+      "PostHog / Analytics", "Serverless Functions", "REST / GraphQL", "WebSockets"
+    ]
   }
 ];

@@ -3,75 +3,75 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Briefcase } from "lucide-react";
 import { personal, socials } from "@/config/site";
+import { fadeInUp } from "@/lib/animations";
 
 export function HeroSection() {
   return (
-    <section className="section-padding min-h-[80vh] flex flex-col justify-center">
+    <section className="section-padding min-h-[85vh] flex flex-col justify-center relative overflow-hidden"> 
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] -z-10" />
+
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative"
+          initial="initial"
+          animate="animate"
+          variants={fadeInUp}
         >
-          <div className="relative z-10 w-full max-w-md mx-auto [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]">
-            <img 
-              src="/profile.png" 
-              alt={personal.name} 
-              className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-            />
-          </div>
-          {/* Decorative elements */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 rounded-full blur-[100px] -z-10" />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="text-primary font-medium tracking-wider uppercase mb-4 block">
+          <span className="text-primary font-bold tracking-widest uppercase mb-4 block text-xs">
             {personal.role}
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
             {personal.name}
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/70 max-w-2xl leading-relaxed mb-10">
-            Building production-ready web applications with 7+ years of experience. 
-            Specialized in <span className="text-foreground">React</span>, <span className="text-foreground">Next.js</span>, and <span className="text-foreground">TypeScript</span>.
+          <p className="text-lg md:text-xl text-foreground/60 max-w-xl leading-relaxed mb-10">
+            Building production-ready web applications with <span className="text-foreground">7+ years</span> of experience. 
+            Specialized in <span className="text-primary">React</span>, <span className="text-primary">Next.js</span>, and exceptional UI solutions.
           </p>
           
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 items-center">
             <a
               href="#experience"
-              className="px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors"
+              className="px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-all hover:-translate-y-0.5"
             >
               Review Experience
             </a>
             <a
               href={`mailto:${personal.email}`}
-              className="px-8 py-4 glass rounded-full font-medium hover:bg-white/10 transition-colors"
+              className="px-8 py-4 glass rounded-full font-bold hover:bg-white/10 transition-all hover:-translate-y-0.5"
             >
               Get in Touch
             </a>
           </div>
 
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="flex gap-6 mt-12"
-          >
-            <a href={socials.github} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-colors">
+          <div className="flex gap-6 mt-12">
+            <a href={socials.github} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-all duration-300 hover:-translate-y-1">
               <Github size={24} />
             </a>
-            <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-colors">
+            <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-all duration-300 hover:-translate-y-1">
               <Linkedin size={24} />
             </a>
-            <a href={socials.upwork} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-colors">
+            <a href={socials.upwork} target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-primary transition-all duration-300 hover:-translate-y-1">
               <Briefcase size={24} />
             </a>
-          </motion.div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative"
+        >
+          <div className="relative z-10 w-full max-w-md mx-auto [mask-image:radial-gradient(ellipse_at_top,black_50%,transparent_80%)]">
+            <div className="[mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]">
+              <img 
+                src="/profile.png" 
+                alt={personal.name} 
+                className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] brightness-80"
+              />
+            </div>
+          </div> 
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 rounded-full blur-[100px] -z-10" />
         </motion.div>
       </div>
     </section>
