@@ -34,4 +34,8 @@
   .section-padding {
     @apply py-20 px-6 sm:px-12 md:px-24 max-w-7xl mx-auto;
   }
+
+  .hero-section {
+    @apply pt-20 pb-6 md:pb-20 px-6 sm:px-12 md:px-24 max-w-7xl mx-auto;
+  }
 }
