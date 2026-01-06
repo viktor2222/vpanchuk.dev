@@ -44,17 +44,15 @@ function SkillCard({ category, index }: { category: SkillCategory; index: number
   
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile(); // Check on mount
+    checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const items = category.items;
-  // Desktop: 86px (~2 rows) -> 5-6 items
-  // Mobile: 172px (~4 rows) -> ~10 items
   const visibleCount = isMobile ? 10 : (index === 0 ? 5 : 6);
   const shouldShowToggle = items.length > visibleCount;
-  const collapsedHeight = isMobile ? 172 : 86;
+  const collapsedHeight = isMobile ? 220 : 86;
 
   return (
     <motion.div

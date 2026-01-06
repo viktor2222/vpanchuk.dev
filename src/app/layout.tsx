@@ -9,7 +9,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Viktor Panchuk | Frontend Developer",
-  description: "Senior Frontend Developer with 7+ years of experience specialized in React and Next.js.",
+  description: "Frontend Developer with 7+ years of experience specialized in React and Next.js.",
 };
 
 export default function RootLayout({
